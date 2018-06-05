@@ -1,6 +1,7 @@
 var browserSync = require('browser-sync');
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
+var del = require('del');
 
 gulp.task('browserSync', function () {
     browserSync.init({
@@ -21,6 +22,25 @@ gulp.task('watch', ['browserSync'], function () {
         browserSync.reload()
     })
 });
-gulp.task('serve' , function (cb) {
+gulp.task('serve', ['clean'], function (cb) {
     runSequence('browserSync', 'watch', cb);
 });
+
+gulp.task('build', ['clean'], function (cb) {
+    gulp.src('./app/**/*')
+        .pipe(gulp.dest('./dist/app'));
+    gulp.src('./script.js')
+        .pipe(gulp.dest('./dist'));
+    gulp.src('./style.css')
+        .pipe(gulp.dest('./dist'));
+    gulp.src('./index.html')
+        .pipe(gulp.dest('./dist'));
+    gulp.src('./vendor/**/*')
+        .pipe(gulp.dest('./dist/vendor'));
+        
+});
+
+gulp.task('clean', function () {
+    return del(['./dist']);
+});
+
