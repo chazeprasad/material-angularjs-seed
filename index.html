@@ -16,9 +16,11 @@
 </head>
 <body ng-app="myApp">
 
-    <div ng-controller="AppController as ctrl">
-        
-        <p>{{ctrl.title}}</p>
+    <div ng-controller="AppController as ctrl" layout="column">
+        <md-toolbar >
+            <h2 flex="">{{ctrl.title}}</h2>
+        </md-toolbar>
+       
         <!-- Your Code Start Here -->
     </div>
 
