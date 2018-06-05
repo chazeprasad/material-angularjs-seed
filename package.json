@@ -2,11 +2,11 @@
   "name": "material-angularjs-seed",
   "version": "1.0.0",
   "description": "Material AngularJS Seed",
-  "main": "script.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Prasad Sivanandan",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.24.4",
